@@ -1,0 +1,31 @@
+Removendo um arquivo do commit:
+git rm --cached primeiro.rb
+git status
+Retirando um arquivo da area de seleção (ex git add) :
+git reset HEAD primeiro.rb
+git status
+
+Removendo arquivos de um branch:
+git rm --cached codigo.rb
+git commit -m "removed file codigo"
+git push origin master
+
+Listar todas as branch:
+git branch --list
+git show-branch -a
+
+Alterar branch e adicionar os arquivos:
+git checkout dev-reinaldo 1code.rb 2code.rb
+
+Alterar os comentarios depois do commit e push (NAO RECOMENDADO):
+git push origin dev-reinaldo
+git rebase -i bb0165c9788a1781ef67a5227ee8e7c9ffdbc23d
+git rebase -i HEAD~1
+
+Coloque no inicio da linha que deseja alterar reword:
+git push --force origin dev-reinaldo
+
+Reverter arquivo deletado:
+git checkout 7ce03d7f531a2e92ace115f9c2ca63a768d4ac37 jenkins2.groovy
+
+Colocar no arquivo desconsiderar .gitignore
