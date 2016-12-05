@@ -1,0 +1,78 @@
+
+git init .
+git remote add origin git@bitbucket.org:cs-reinaldo-pinto/teste.git
+git checkout -b dev
+git add README.md
+git commit -m "Test"
+git push -u origin dev
+
+Removendo arquivos de um branch:
+git rm --cached codigo.rb
+git commit -m "removed file codigo"
+git push origin master
+
+Listar todas as branch:
+git branch --list
+git show-branch -a
+
+Alterar branch e adicionar os arquivos:
+git checkout dev-reinaldo firstcode.rb secondcode.rb
+
+Alterar os comentarios depois do commit e push (NAO RECOMENDADO):
+git push origin dev-reinaldo
+git rebase -i bb0165c9788a1781ef67a5227ee8e7c9ffdbc23d
+git rebase -i HEAD~1
+Coloque no inicio da linha que deseja alterar reword:
+git push --force origin dev-reinaldo
+
+Colocar no arquivo desconsiderar .gitignore.
+Sempre remova do chave
+git rm -r --cached app/app/libs
+
+##Create Symbolic Link to submodule app/app/libs
+if [ ! -e "../../app/app/libs" ]; then
+   ln -sf ../../green-field/shared-libs/ ../../app/app/libs
+fi
+
+#Submodule
+git submodule init
+git submodule update
+git submodule foreach git pull origin development
+
+#Git log.
+git log --oneline
+git log --oneline --decorate
+git log -p
+git shortlog
+git log --graph --oneline --decorate
+git log --pretty=format:"%cn committed %h on %cd"
+git log --after="2014-7-1"
+git log --after="2016-7-22"
+git log --after="2016-7-25" --before="2016-7-14"
+git log --author="John"
+git log --author="reinaldo"
+git log --author="reinaldo\|joao"
+git log --grep="cs-002:"
+git log --grep="cs-002devopsrp"
+git log --graph --oneline --decorate
+
+
+git submodule add http://git/reinaldo.pinto/sharedteste.git
+ls -ls sharedteste/
+cat  .gitmodules
+git submodule init
+git submodule update
+ls -las
+git add .
+git push origin master
+git commit -m "New files"
+git push origin master
+HEAD:gh-pagestouch .
+
+touch .
+git add -A .
+TIMESTAMP="$(date +'%Y%m%d_%H-%M-%S')"
+REVISION=$(git rev-parse --short HEAD)
+git checkout master
+git commit -m "Documentation updated at ${TIMESTAMP} - ${REVISION}"
+git push -q upstream HEAD:gh-pages
